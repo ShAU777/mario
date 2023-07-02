@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>mario</title>
+    <link rel="shortcut icon" href="img/download.jpg" type="image/x-icon">
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            #mario {
+                color: rgb(58, 46, 46);
+                text-align: center;
+            }
+            
+            .button {
+                position: absolute;
+                transition: transform 0.3s;
+    
+            }
+            
+            .button:hover {
+                transform: translateX(20px); /* Altere o valor conforme desejado */
+            }
+            
+            .container {
+                text-align: center;
+                position: relative;
+            }
+            
+            #m {
+                width: 400px;
+                height: 200px;
+                left: 50%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <img id="m" src="img/mario.png" alt="">
+        <div id="mario">
+            <h1>Olá</h1>
+            <h2>conhece o mario?😈</h2>
+            <h3>este mesmo...</h3>
+            o que te comeu atras do
+        </div>
+    
+        <div class="container">
+            <input class="button" id="button1" type="button" value="sem graça">
+            <a class="jh" id="button2" href="https://youtu.be/rA-dXOeNllA" target="_blank">ARMARIO</a>
+        </div>
+    
+        <script>
+            const button = document.getElementById('button1');
+            const container = document.querySelector('.container');
+    
+            function getRandomPosition() {
+                const containerRect = container.getBoundingClientRect();
+                const buttonRect = button.getBoundingClientRect();
+                const maxWidth = containerRect.width - buttonRect.width;
+                const maxHeight = containerRect.height - buttonRect.height;
+                const randomX = Math.floor(Math.random() * maxWidth);
+                const randomY = Math.floor(Math.random() * maxHeight);
+    
+                return { x: randomX, y: randomY };
+            }
+    
+            function moveButtonToRandomPosition() {
+                const randomPosition = getRandomPosition();
+                button.style.transform = `translate(${randomPosition.x}px, ${randomPosition.y}px)`;
+            }
+    
+            button.addEventListener('click', moveButtonToRandomPosition);
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
